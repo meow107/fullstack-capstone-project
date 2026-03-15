@@ -8,7 +8,7 @@ import { useAppContext } from '../../context/AuthContext';
 //Step 1 - Task 3
 import { useNavigate } from 'react-router-dom';
 
-import './RegisterPage.css';
+// import './RegisterPage.css';
 
 function RegisterPage() {
     const [firstName, setFirstName] = useState('');
