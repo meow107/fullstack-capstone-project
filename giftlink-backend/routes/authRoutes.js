@@ -64,7 +64,7 @@ router.post('/login', async (req, res) => {
         const theUser = await collection.findOne({ email: req.body.email });
 
         if (theUser) {
-            let result = await bcryptjs.compare(req.body.password, theUser.password)
+            let result = await bcryptjs.compare(req.body.password, theUser.password);
             if(!result) {
                 logger.error('Passwords do not match');
                 return res.status(404).json({ error: 'Wrong pasword' });
@@ -130,7 +130,7 @@ router.put('/update', async (req, res) => {
         const updatedUser = await collection.findOneAndUpdate(
             { email },
             { $set: existingUser },
-            { returnDocument: 'after' }
+            { returnOriginal: false }
         );
 
 		//Task 7: Create JWT authentication with user._id as payload using secret key from .env file
